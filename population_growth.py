@@ -1,13 +1,12 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import tkinter as tk
 import tkinter.tix
 
 
 def main_window(w, df):
     w.title('Population growth')
-    tab = tkinter.tix.HList(w, columns=4, header=True, width=30, height=20)
+    tab = tkinter.tix.HList(w, columns=4, header=True, width=30, height=35)
     tab.grid(row=0, column=0, columnspan=3, )
     tab.header_create(0, text="Year")
     tab.header_create(1, text="Population")
@@ -26,12 +25,6 @@ def main_window(w, df):
         tab.item_create(index, 2, text=str(elem))
         tab.item_create(index, 3, text=str(elem))
         index += 1
-
-    but1 = tk.tix.ButtonBox(w)
-    but1.add('ok', text='Growth', width=5)
-    but1.bind("<Button-1>", lambda event: graphs(df))
-    but1.grid(row=0, column=4)
-
 
 def reindex1(olddata):
     lst1 = []
